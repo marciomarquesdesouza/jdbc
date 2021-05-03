@@ -22,7 +22,7 @@ public class FabricaConexao {
 	}
 	
 	private static Properties getProperties() throws IOException {
-		Properties prop = new Properties();
+		Properties prop = new Properties();	
 		String caminho = "/conexao.properties";
 		prop.load(FabricaConexao.class.getResourceAsStream(caminho));
 		return prop;
