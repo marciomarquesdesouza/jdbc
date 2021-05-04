@@ -11,18 +11,18 @@ public class ConsultarPessoa1 {
 
 	public static void main(String[] args) throws SQLException {
 		
-		Connection conexao = FabricaConexao.getConexao();
+		Connection connection = FabricaConexao.getConexao();
 		String sql = "SELECT * FROM pessoas";
 		
-		Statement stmt = conexao.createStatement();
-		ResultSet resultado = stmt.executeQuery(sql);
+		Statement stmt = connection.createStatement();
+		ResultSet result = stmt.executeQuery(sql);
 		
 		List<Pessoa> pessoas = new ArrayList<>();
 		
-		while(resultado.next()) {
-			int codigo = resultado.getInt("codigo");
-			String nome = resultado.getString("nome");
-			pessoas.add(new Pessoa(codigo, nome));
+		while(result.next()) {
+			int code = result.getInt("codigo");
+			String nome = result.getString("nome");
+			pessoas.add(new Pessoa(code, nome));
 		}
 		
 		for(Pessoa p: pessoas) {
@@ -30,6 +30,6 @@ public class ConsultarPessoa1 {
 		}
 		
 		stmt.close();
-		conexao.close();
+		connection.close();
 	}
 }
